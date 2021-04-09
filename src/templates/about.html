@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>About Page</h1>
+    <h3> {{ title|capfirst|title }}</h3>
+    <p>This is DJANGO about page</p>
+{{ my_html|safe }}
+    <p>
+        {{ my_number }} {{ my_lists }}
+    </p>
+
+    <ul>
+        {% for abc in my_lists %}
+            {% if abc == 321 %}
+                <li> {{ forloop.counter }} - {{ abc|add:22 }} </li>
+            {% elif abc == "ABC" %}
+                <li> This is not in network </li>
+            {% else %}
+                <li> {{ forloop.counter }} - {{ abc }} </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
